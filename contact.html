@@ -78,7 +78,7 @@
 					<div class="col-lg-10">
 						<div class="banner-content text-center">
 							<h2 class="text-white">feel free to contact teqtocode</h2>
-							<p class="text-white"><!-- We are love to expand your business --><br> we are here to upgrade your business.</p>
+							<p class="text-white"> We wish be always hold your hands together <br> we are here to upgrade your business.</p>
 						</div>
 					</div>
 				</div>
@@ -102,20 +102,20 @@
 					<div class="row">
 						<div class="col-lg-8 col-md-8">
 							<h3 class="mb-30">Talk to teqtocode</h3>
-							<form action="#">
+							<form action="#" method="post" id="ajxContactForm">
 								<div class="mt-10">
-									<input type="text" name="first_name" placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required class="single-input">
+									<input type="text" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required class="single-input">
 								</div>
 								 
 							 
 								<div class="mt-10">
-									<input type="email" name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input">
+									<input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input">
 								</div>
 								 
 								<div class="input-group-icon mt-10">
 									<div class="icon"><i class="fa fa-envelope-open" aria-hidden="true"></i></div>
 									<div class="form-select">
-										<select>
+										<select name="subject">
 											<option>Subject</option>
 											<option>Website</option>
 											<option>Mobile App</option>
@@ -128,12 +128,12 @@
 								 
 
 								<div class="mt-10">
-									<textarea class="single-textarea" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
+									<textarea class="single-textarea" name="message" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
 								</div>
 
 								<div class="mt-10">
 
-									<a href="#" class="genric-btn primary circle arrow">Send<span class="lnr lnr-arrow-right"></span></a>
+									<button type="button"  class="genric-btn primary circle arrow">Send<span class="lnr lnr-arrow-right"></span></button>
 								</div>
 									 
 									 
@@ -314,6 +314,31 @@
 		})();
 		</script>
 		<!--End of Tawk.to Script-->
+		 
+
+		<script type="text/javascript">
+			
+
+			$("#contact_form_submit").click(function(){
+
+		        $.ajax({
+		            url: "http://apsysnetworks.com/temp/contact_send.php",
+		            type: "POST",
+		            data:  $('#ajxContactForm').serialize(),
+		            //contentType: false,
+		            //cache: false,
+		            //processData:false,
+		            dataType:'html',
+		            success: function(data){
+		                console.log(data); 
+		                
+		            }
+	        });
+
+
+
+		    });
+		</script>
 
 
 
