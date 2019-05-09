@@ -376,14 +376,14 @@
 			        $('#ajxContactForm *').css('pointer-events','none');       
 
 		        	$.ajax({
-			            url: "http://apsysnetworks.com/temp/contact_send.php",
+			            url: "https://apsysnetworks.com/temp/contact_send.php",
 			            type: "POST",
 			            data:  $('#ajxContactForm').serialize(),
 			            contentType:"application/x-www-form-urlencoded",
 			            //contentType: false,
-			            cache: false,
-			            processData:false,
-			            dataType:'html',
+			            //cache: false,
+			            //processData:false,
+			            //dataType:'html',
 			            success: function(data){
 
 			            	$('#ajxContactForm').css('opacity','1');
