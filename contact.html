@@ -366,28 +366,10 @@
 
 		<script type="text/javascript">
 			
-
-			$("#contact_form_submit").click(function(){
-
-		        $.ajax({
-		            url: "http://apsysnetworks.com/temp/contact_send.php",
-		            type: "POST",
-		            data:  $('#ajxContactForm').serialize(),
-		            //contentType: false,
-		            //cache: false,
-		            //processData:false,
-		            contentType:"application/x-www-form-urlencoded",
-		            dataType:'html',
-		            success: function(data){
-		                console.log(data); 
-		                
-		            }
-	        });
-
-		    });
+ 
 
 
-		    
+
 		        $('#ajxContactForm').on('submit',(function(e) {
 			        e.preventDefault();
 			        $('#ajxContactForm').css('opacity','0.3');
@@ -397,6 +379,7 @@
 			            url: "http://apsysnetworks.com/temp/contact_send.php",
 			            type: "POST",
 			            data:  $('#ajxContactForm').serialize(),
+			            contentType:"application/x-www-form-urlencoded",
 			            //contentType: false,
 			            cache: false,
 			            processData:false,
