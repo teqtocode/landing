@@ -102,7 +102,9 @@
 					<div class="row">
 						<div class="col-lg-8 col-md-8">
 							<h3 class="mb-30">Talk to teqtocode</h3>
-							<form action="#" method="post" id="ajxContactForm">
+						 
+
+								<form action="#" method="post" id="ajxContactForm">
 								<div class="mt-10">
 									<input type="text" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required class="single-input">
 								</div>
@@ -132,12 +134,36 @@
 								</div>
 
 								<div class="mt-10">
-
-									<button type="button" id="contact_form_submit"  class="genric-btn primary circle arrow">Send<span class="lnr lnr-arrow-right"></span></button>
+									<div class="col-md-4  pull-left" >
+										<button xtype="button" id="contact_form_submit"  class="genric-btn primary circle arrow">Send<span class="lnr lnr-arrow-right"></span></button>
+									</div>
+									<div class="col-md-6 pull-left">
+										<div id="ajaxResponse" ></div>
+									</div>
+									
+									
 								</div>
 									 
 									 
 								</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 							</div>
 							<div class="col-lg-3 col-md-4 mt-sm-30">
 
@@ -359,6 +385,34 @@
 	        });
 
 		    });
+
+
+		    
+		        $('#ajxContactForm').on('submit',(function(e) {
+			        e.preventDefault();
+			        $('#ajxContactForm').css('opacity','0.3');
+			        $('#ajxContactForm *').css('pointer-events','none');       
+
+		        	$.ajax({
+			            url: "http://apsysnetworks.com/temp/contact_send.php",
+			            type: "POST",
+			            data:  $('#ajxContactForm').serialize(),
+			            //contentType: false,
+			            cache: false,
+			            processData:false,
+			            dataType:'html',
+			            success: function(data){
+
+			            	$('#ajxContactForm').css('opacity','1');
+				        	$('#ajxContactForm *').css('pointer-events','unset');
+			                console.log(data); 
+			                $("#ajaxResponse").html(data);
+			                $('#ajxContactForm').trigger("reset");
+			                
+			            }
+	        		});
+
+			    }));
 		</script>
 
 
